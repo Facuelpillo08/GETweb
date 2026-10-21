@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Sapphire & Mint Ice Palette Tokens */
+    --color-ice-bg: #F8FAFC;
+    --color-ice-surface: #FFFFFF;
+    --color-ice-subtle: #F1F5F9;
+    --color-hairline: #E2E8F0;
+    --color-hairline-dark: #CBD5E1;
+
+    --color-slate-900: #0F172A;
+    --color-slate-700: #334155;
+    --color-slate-600: #475569;
+    --color-slate-400: #94A3B8;
+
+    --color-sapphire: #1E3A8A;
+    --color-sapphire-light: #2563EB;
+    --color-sapphire-hover: #172554;
+    --color-sapphire-surface: #EFF6FF;
+    --color-sapphire-border: #BFDBFE;
+
+    --color-mint: #059669;
+    --color-mint-light: #10B981;
+    --color-mint-hover: #047857;
+    --color-mint-surface: #ECFDF5;
+    --color-mint-border: #A7F3D0;
+
+    --color-rose: #E11D48;
+    --color-rose-surface: #FFF1F2;
+    --color-rose-border: #FECDD3;
+
+    --color-amber: #D97706;
+    --color-amber-surface: #FEF3C7;
+    --color-amber-border: #FDE68A;
+  }
+
+  * {
+    border-color: var(--color-hairline);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-ice-bg);
+    color: var(--color-slate-900);
+    overflow-x: hidden;
+    /* Subtle technical micro-grid pattern */
+    background-image: 
+      linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Custom Sapphire & Mint Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Precision Bento Card */
+.sapphire-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sapphire-card:hover {
+  border-color: #1E3A8A;
+  box-shadow: 0 14px 34px -10px rgba(30, 58, 138, 0.08), 0 0 0 1px rgba(30, 58, 138, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Glass & translucent panels */
+.glass-ice {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+/* Radar scanning beam animation */
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-spin {
+  animation: radar-spin 4s linear infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse-sapphire {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.96); }
+}
+
+.animate-pulse-sapphire {
+  animation: pulse-sapphire 2.2s infinite ease-in-out;
+}
+
+/* Subtle fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
